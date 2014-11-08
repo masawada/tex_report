@@ -56,4 +56,12 @@ end
 desc "outとtmpディレクトリを消します"
 task :clean do
   sh "rm -rf #{TMP} #{OUT}"
+  [TMP, OUT].each do |dirname|
+    begin
+      puts "create directory: #{dirname}"
+      Dir.mkdir(dirname, 0755)
+    rescue
+      puts "warn: directory #{dirname} already exists"
+    end
+  end
 end
