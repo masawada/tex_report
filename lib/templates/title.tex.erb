@@ -1,0 +1,62 @@
+\documentclass[a4j,10pt]{jarticle}
+
+% title
+\makeatletter
+
+\def\@thesis{コンピュータサイエンス実験第二}
+\def\id#1{\def\@id{#1}}
+\def\course#1{\def\@course{#1}}
+
+\def\@maketitle{
+\begin{center}
+{\huge \@thesis \par}
+\vspace{10mm}
+{\LARGE\bf \@title \par}
+\vspace{10mm}
+{\Large \@date\par}
+\vspace{20mm}
+{\large \@course \par}
+\vspace{2mm}
+{\large \@id \hspace{3mm} \@author \par}
+\end{center}
+\par\vskip 1.5em
+}
+
+\makeatother
+
+% packages
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings,jlisting}
+\usepackage[dvipdfmx]{color}
+
+\lstset{%
+frame=single,
+stringstyle={\ttfamily \color[rgb]{0,0,1}},
+commentstyle={\itshape \color[cmyk]{1,0,1,0}},
+identifierstyle={\ttfamily},
+keywordstyle={\ttfamily \color[cmyk]{0,1,0,0}},
+basicstyle={\ttfamily},
+breaklines=true,
+xleftmargin=0zw,
+xrightmargin=0zw,
+framerule=.2pt,
+columns=[l]{fullflexible},
+numbers=left,
+stepnumber=1,
+numberstyle={\scriptsize},
+numbersep=1em,
+showstringspaces=\false,
+keepspaces=true,
+language={C},
+lineskip=-0.5zw,
+morecomment={[s][{\color[cmyk]{1,0,0,0}}]{/**}{*/}},
+}
+
+\title{<%= @title["title"] %>}
+\author{<%= @title["name"] %>}
+\date{<%= Date.today.strftime("%Y年%m月%d日") %>}
+\id{<%= @title["stdid"] %>}
+\course{<%= @title["course"] %>}
+\begin{document}
+\maketitle
+\clearpage
