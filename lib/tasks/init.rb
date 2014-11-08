@@ -32,11 +32,10 @@ task :init do
 
   # create config files
   cd CONFIG do
-    puts "create file: tex_files"
-    File.open("tex_files", "w").close
-
-    puts "create file: title.yml"
-    File.open("title.yml", "w").close
+    ["tex_files", "bibliography", "title.yml"].each do |filename|
+      puts "create file: #{filename}"
+      sh "touch #{filename}"
+    end
 
     puts "writing title.yml"
     open("title.yml", "w") { |f| f.write YAML.dump(conf) }
@@ -46,7 +45,7 @@ task :init do
   begin
     sh "git remote remove origin"
   rescue
-    puts "couldn't remove remote origin"
+    puts "skip removing remote origin"
   end
 
   # finish
