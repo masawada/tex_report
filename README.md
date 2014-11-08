@@ -61,7 +61,7 @@ $ rake
 $ editor conifg/title.yml
 ```
 
-`config.yml`を編集して保存してください。
+`title.yml`を編集して保存してください。
 
 ### ソースコードの添付
 * `src`ディレクトリ以下にソースコードを保存
