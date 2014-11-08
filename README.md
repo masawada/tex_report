@@ -83,3 +83,23 @@ $ editor conifg/title.yml
   \end{center}
 \end{figure}
 ```
+
+### Rubyの埋め込み
+erbでRubyを埋め込むことが可能です。
+
+```
+\begin{itemize}
+<% ["hoge", "fuga", "hogefuga"].each do |item| %>
+  \item <%= item %>
+<% end %>
+\end{itemize}
+```
+
+### 参考文献の出力
+`config/bibliography.yml`を編集すると参考文献を出力することができます。
+
+```
+label: item
+```
+
+TeX本文からは`\cite{label}`でlabelに対応する参考文献を呼び出すことができます。
