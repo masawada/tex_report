@@ -32,7 +32,7 @@ task :init do
 
   # create config files
   cd CONFIG do
-    ["tex_files", "bibliography", "title.yml"].each do |filename|
+    ["tex_files", "bibliography.yml", "title.yml"].each do |filename|
       puts "create file: #{filename}"
       sh "touch #{filename}"
     end
