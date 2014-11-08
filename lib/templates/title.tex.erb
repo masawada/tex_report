@@ -3,7 +3,7 @@
 % title
 \makeatletter
 
-\def\@thesis{コンピュータサイエンス実験第二}
+\def\thesis#1{\def\@thesis{#1}}
 \def\id#1{\def\@id{#1}}
 \def\course#1{\def\@course{#1}}
 
@@ -54,6 +54,7 @@ morecomment={[s][{\color[cmyk]{1,0,0,0}}]{/**}{*/}},
 
 \title{<%= @title["title"] %>}
 \author{<%= @title["name"] %>}
+\thesis{<%= @title["thesis"] %>}
 \date{<%= Date.today.strftime("%Y年%m月%d日") %>}
 \id{<%= @title["stdid"] %>}
 \course{<%= @title["course"] %>}

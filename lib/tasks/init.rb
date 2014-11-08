@@ -11,6 +11,7 @@ task :init do
   # input meta data
   puts "== Input meta data"
   conf = {}
+  conf["thesis"] = input "Thesis"
   conf["title"] = input "Title"
   conf["name"] = input "Name"
   conf["stdid"] = input "Student ID"
