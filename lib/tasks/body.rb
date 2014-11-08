@@ -1,0 +1,13 @@
+namespace :body do
+  task :generate do
+    body = []
+    open("#{CONFIG}/tex_files") do |file|
+      while l = file.gets
+        erb = ERB.new(File.read("#{TEX}/#{l.chomp}"), nil, '-')
+        body << erb.result(binding)
+      end
+    end
+
+    open("#{TMP}/body.tex", "w") { |f| f.write body.join("\n") }
+  end
+end

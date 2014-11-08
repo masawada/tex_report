@@ -29,6 +29,8 @@ $ bundle install --path vendor/bundle
 
 ```
 $ sudo cp /path/to/jlisting.sty /usr/local/texlive/*/texmf-dist/tex/latex/listings/jlisting.sty
+$ sudo chmod 644 /usr/local/texlive/*/texmf-dist/tex/latex/listings/jlisting.sty
+$ sudo mktexlsr
 ```
 
 ## レポートの初期設定
