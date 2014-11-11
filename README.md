@@ -63,27 +63,6 @@ $ editor conifg/title.yml
 
 `title.yml`を編集して保存してください。
 
-### ソースコードの添付
-* `src`ディレクトリ以下にソースコードを保存
-* `\lstinputlisting[caption=hoge,label=hoge]{filename}`を表示したい場所に添付
-  * このときfilenameは上で保存したファイル名(src/は不要)
-  * captionはコードの説明、labelは添付したソースコード固有のid
-
-### .pngファイルをTeXに添付
-* .pngファイルを`images`ディレクトリ以下に保存
-* 以下のコード片を表示したい場所に添付
-  * このときfilenameは上で保存したファイル名(images/は不要)
-
-```
-\begin{figure}[htbp]
-  \begin{center}
-    \label{hoge}
-    \includegraphics[width=15cm]{filename}
-    \caption{hoge}
-  \end{center}
-\end{figure}
-```
-
 ### Rubyの埋め込み
 erbでRubyを埋め込むことが可能です。
 
@@ -94,6 +73,61 @@ erbでRubyを埋め込むことが可能です。
 <% end %>
 \end{itemize}
 ```
+
+また、ヘルパ関数を定義して呼び出すことができます。
+
+`lib/helpers`以下に`.rb`ファイルを作成して、内部で関数を定義してください。コンパイル時、TeXファイルの中から呼び出すことが可能です。
+
+デフォルトで
+
+* ソースコードの添付
+* 画像の添付
+
+のヘルパ関数が登録されています。
+
+### ソースコードの添付
+* `src`ディレクトリ以下にソースコードを保存
+* TeXファイルに以下のようにerbを記述(ここでは`src/hoge.c`を保存したとする)
+
+```erb
+<%= code("hoge.c", "hoge.cのソースコード") %>
+```
+
+ラベルはデフォルトで`.`を`-`に置き換えたものが指定されます(ここでは`hoge-c`)。ラベルを独自のものに変更したい場合は第三引数にそれを記述してください。
+
+```erb
+<%= code("hoge.c", "hoge.cのソースコード", "dokuji-label") %>
+```
+
+また、言語はデフォルトでC言語が指定されます。変更したい場合は第四引数に言語を記述してください。
+
+```erb
+<%= code("hoge.rb", "hoge.rbのソースコード", "dokuji-label", "ruby") %>
+```
+
+このとき、ラベルをデフォルトにしたい場合は第三引数を`nil`してください。
+
+### .pngファイルをTeXに添付
+* .pngファイルを`images`ディレクトリ以下に保存
+* TeXファイルに以下のようにerbを記述(ここでは`images/hoge.png`を保存したとする)
+
+```erb
+<%= image("hoge.png", "hogeの画像") %>
+```
+
+ラベルはデフォルトで`.`を`-`に置き換えたものが指定されます(ここでは`hoge-png`)。ラベルを独自のものに変更したい場合は第三引数にそれを記述してください。
+
+```erb
+<%= image("hoge.png", "hogeの画像", "dokuji-label") %>
+```
+
+また、サイズはデフォルトで横幅15cmです。変更したい場合は第四引数に記述してください。
+
+```erb
+<%= image("hoge.png", "hogeの画像", "dokuji-label", "10cm") %>
+```
+
+このとき、ラベルをデフォルトにしたい場合は第三引数を`nil`してください。
 
 ### 参考文献の出力
 `config/bibliography.yml`を編集すると参考文献を出力することができます。
