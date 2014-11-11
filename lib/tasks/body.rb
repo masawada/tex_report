@@ -1,6 +1,10 @@
 namespace :body do
   desc "本文を生成します"
   task :generate do
+    # load helpers
+    Dir.glob("lib/helpers/*.rb").each { |f| require "./#{f}" }
+
+    # main
     body = []
     open("#{CONFIG}/tex_files") do |file|
       while l = file.gets
