@@ -1,4 +1,5 @@
 namespace :body do
+  desc "本文を生成します"
   task :generate do
     body = []
     open("#{CONFIG}/tex_files") do |file|

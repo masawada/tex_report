@@ -1,4 +1,5 @@
 namespace :create do
+  desc "TeXファイル(erb)を作成します"
   task :tex do
     if ENV['NAME'].nil?
       puts "error: no name given"
