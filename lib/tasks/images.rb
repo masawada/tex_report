@@ -1,13 +1,17 @@
 namespace :images do
-  desc "pngファイルを.xbbに変換します"
+  desc "jpg, pngファイルを.xbbに変換します"
   task :convert do
-    begin
-      sh "cp #{IMAGES}/*.png #{TMP}/"
-      cd TMP do
-        sh "extractbb *.png"
+    exts = ["png",  "jpg",  "jpeg"]
+    exts.each do |ext|
+      begin
+        sh "cp #{IMAGES}/*.#{ext} #{TMP}/"
+
+        cd TMP do
+          sh "extractbb *.#{ext}"
+        end
+      rescue
+        puts "info: skip converting #{ext} files"
       end
-    rescue
-      puts "info: skip converting images"
     end
   end
 end
