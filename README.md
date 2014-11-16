@@ -3,7 +3,7 @@ TeX Report Template
 
 ##  必須環境
 
-* Ruby >= 1.9.3
+* Ruby >= 2.0.0
 * rake
 * jlisting.sty
 
