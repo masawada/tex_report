@@ -12,7 +12,7 @@ namespace :create do
     end
 
     cd CONFIG do
-      open("tex_files", "a") { |f| f.write "#{ENV['NAME']}.tex.erb" }
+      open("tex_files", "a") { |f| f.write "#{ENV['NAME']}.tex.erb\n" }
     end
   end
 end
