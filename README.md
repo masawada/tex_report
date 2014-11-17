@@ -42,7 +42,7 @@ $ rake init
 
 ## TeXファイルの作成
 ```
-$ rake create NAME=PAGE_NAME
+$ rake create:tex NAME=PAGE_NAME
 ```
 
 ## TeXのコンパイル
