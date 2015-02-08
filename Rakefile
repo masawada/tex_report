@@ -6,7 +6,7 @@ def require_dir(dir)
 end
 
 TEX = "tex"
-TMP = "tmp"
+TMP = ".tmp"
 OUT = "out"
 CONFIG = "config"
 LIB = "lib"
