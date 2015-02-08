@@ -3,7 +3,7 @@ def image(name, caption, label=nil, size="15cm")
   <<-EOS
   \\begin{figure}[htbp]
     \\begin{center}
-      \\includegraphics[width=#{size}]{#{name}}
+      \\includegraphics[width=#{size}]{images/#{name}}
       \\caption{#{caption}}
       \\label{#{label}}
     \\end{center}
